@@ -39,5 +39,6 @@ output "guestlist-front-build-user-access-key" {
 
 output "guestlist-front-build-user-secret-key" {
   value = aws_iam_access_key.com-guestlist-iam-access-key-guestlist-front-build.secret
+  sensitive = true
 }
 

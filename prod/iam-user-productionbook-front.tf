@@ -39,5 +39,6 @@ output "productionbook-front-build-user-access-key" {
 
 output "productionbook-front-build-user-secret-key" {
   value = aws_iam_access_key.com-productionbook-iam-access-key-productionbook-front-build.secret
+  sensitive = true
 }
 

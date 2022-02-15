@@ -53,8 +53,9 @@ resource "aws_lb_listener_rule" "com-guestlist-alb-listener-rule-guestlist-api-p
   }
 
   condition {
-    field  = "host-header"
-    values = ["guestlist-api.qeerio.com"]
+    host_header {
+      values = ["guestlist-api.qeerio.com"]
+    }
   }
 }
 
@@ -73,8 +74,9 @@ resource "aws_lb_listener_rule" "com-guestlist-alb-listener-rule-guestlist-api-t
   }
 
   condition {
-    field  = "host-header"
-    values = ["guestlist-api.eventum-app.com"]
+    host_header {
+      values = ["guestlist-api.eventum-app.com"]
+    }
   }
 }
 
@@ -94,8 +96,9 @@ resource "aws_lb_listener_rule" "com-guestlist-alb-listener-rule-productionbook-
   }
 
   condition {
-    field  = "host-header"
-    values = ["productionbook-api.eventum-app.com"]
+    host_header {
+      values = ["productionbook-api.eventum-app.com"]
+    }
   }
 }
 
@@ -113,8 +116,10 @@ resource "aws_lb_listener_rule" "com-guestlist-alb-listener-rule-productionbook-
     target_group_arn = aws_lb_target_group.com-guestlist-target-group-productionbook-api-prod.arn
   }
 
+
   condition {
-    field  = "host-header"
-    values = ["productionbook-api.qeerio.com"]
+    host_header {
+      values = ["productionbook-api.qeerio.com"]
+    }
   }
 }
