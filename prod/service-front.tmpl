@@ -1,0 +1,23 @@
+[
+  {
+    "name": "guestlist-front",
+    "image": "295335739321.dkr.ecr.eu-west-1.amazonaws.com/qeerio/guestlist-front-prod:v65",
+    "cpu": 256,
+    "memory": 512,
+    "memoryReservation": 512,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 80
+      }
+    ],
+    "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+      "awslogs-group": "/ecs/guestlist-front-prod",
+      "awslogs-region": "eu-west-1",
+      "awslogs-stream-prefix": "ecs"
+    }
+  }
+  }
+]
