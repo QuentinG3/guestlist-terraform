@@ -123,3 +123,46 @@ resource "aws_lb_listener_rule" "com-guestlist-alb-listener-rule-productionbook-
     }
   }
 }
+
+resource "aws_lb_listener_certificate" "com-guestlist-alb-listener-certificate-inventory-test" {
+  listener_arn    = aws_lb_listener.com-guestlist-alb-listener.arn
+  certificate_arn = "arn:aws:acm:eu-west-1:295335739321:certificate/94249c9a-778f-4036-b4df-86ef2900766e"
+}
+
+resource "aws_lb_listener_rule" "com-guestlist-alb-listener-rule-inventory-api-test" {
+  listener_arn = aws_lb_listener.com-guestlist-alb-listener.arn
+  priority     = 9
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.com-guestlist-target-group-inventory-api-test.arn
+  }
+
+  condition {
+    host_header {
+      values = ["inventory-api.eventum-app.com"]
+    }
+  }
+}
+
+resource "aws_lb_listener_certificate" "com-guestlist-alb-listener-certificate-inventory-prod" {
+  listener_arn    = aws_lb_listener.com-guestlist-alb-listener.arn
+  certificate_arn = "arn:aws:acm:eu-west-1:295335739321:certificate/9cb46b1a-8b30-4097-94ec-175fbea5495f"
+}
+
+resource "aws_lb_listener_rule" "com-guestlist-alb-listener-rule-inventory-api-prod" {
+  listener_arn = aws_lb_listener.com-guestlist-alb-listener.arn
+  priority     = 10
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.com-guestlist-target-group-inventory-api-prod.arn
+  }
+
+
+  condition {
+    host_header {
+      values = ["inventory-api.qeerio.com"]
+    }
+  }
+}
