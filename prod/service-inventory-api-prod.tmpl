@@ -1,7 +1,7 @@
 [
   {
     "name": "inventory-api-prod",
-    "image": "295335739321.dkr.ecr.eu-west-1.amazonaws.com/qeerio/inventory-api:v42",
+    "image": "295335739321.dkr.ecr.eu-west-1.amazonaws.com/qeerio/inventory-api:v59",
     "cpu": 256,
     "memory": 512,
     "memoryReservation": 512,
@@ -27,6 +27,7 @@
       { "name": "PG_HOST", "value": "${PG_HOST}" },
       { "name": "PG_PASSWORD", "value": "${PG_PASSWORD}" },
       { "name": "PG_USER", "value": "${PG_USER}" },
+      { "name": "PG_MAX_CONNECTIONS", "value": "${PG_MAX_CONNECTIONS}" },
       { "name": "SES_FROM", "value": "${SES_FROM}" },
       { "name": "AWS_S3_BUCKET", "value": "${AWS_S3_BUCKET}" },
       { "name": "STRIPE_KEY", "value": "${STRIPE_KEY}" },

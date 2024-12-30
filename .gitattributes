@@ -1,0 +1,8 @@
+# Encrypt ALL variables.tf files (in any subdirectory)
+**/variables.tf       filter=git-crypt diff=git-crypt
+
+# Encrypt ALL terraform.tfstate files (in any subdirectory)
+**/terraform.tfstate  filter=git-crypt diff=git-crypt
+
+# Encrypt ALL terraform.tfstate.backup files (in any subdirectory)
+**/terraform.tfstate.backup filter=git-crypt diff=git-crypt
